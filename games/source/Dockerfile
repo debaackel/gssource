@@ -42,7 +42,9 @@ RUN			deb http://deb.debian.org/debian buster main \
 			&& deb-src http://deb.debian.org/debian-security/ buster/updates main \
 
 			&& deb http://deb.debian.org/debian buster-updates main \
-			&& deb-src http://deb.debian.org/debian buster-updates main 
+			&& deb-src http://deb.debian.org/debian buster-updates main
+			&& apt update
+   
 RUN			apt install gcc-7
 
 ## install rcon
