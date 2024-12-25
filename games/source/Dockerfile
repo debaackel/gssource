@@ -35,9 +35,8 @@ RUN         dpkg --add-architecture i386 \
             && apt install -y tar curl gcc g++ lib32gcc-s1 libgcc-11-dev libgcc-12-dev libcurl4-gnutls-dev:i386 libssl-dev:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 iproute2 gdb libsdl1.2debian libfontconfig1 telnet net-tools netcat-traditional tzdata numactl wget tini \
             && useradd -m -d /home/container container
 
-RUN			deb [arch=amd64] http://archive.ubuntu.com/ubuntu focal main universe
-RUN			apt update
-RUN			apt install g++-7
+RUN			wget http://ftp.de.debian.org/debian/pool/main/g/gcc-7/gcc-7_7.4.0-6_amd64.deb
+RUN			apt install ./gcc-7_7.4.0-6_amd64.deb
 
 ## install rcon
 RUN         cd /tmp/ \
