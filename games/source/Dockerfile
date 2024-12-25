@@ -37,7 +37,7 @@ RUN         dpkg --add-architecture i386 \
 
 RUN			deb [arch=amd64] http://archive.ubuntu.com/ubuntu focal main universe \
             && apt update \
-			apt install g++-7
+			&& apt install g++-7
 
 ## install rcon
 RUN         cd /tmp/ \
