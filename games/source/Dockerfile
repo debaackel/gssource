@@ -44,7 +44,7 @@ RUN 		wget http://ftp.de.debian.org/debian/pool/main/g/gcc-7/gcc-7_7.4.0-6_amd64
 RUN			dpkg -i libisl19_0.20-2_amd64.deb
 RUN			dpkg -i gcc-7-base_7.4.0-6_amd64.deb
 RUN			dpkg -i cpp-7_7.4.0-6_amd64.deb
-RUN			dpkg -i glibgcc-7-dev_7.4.0-6_amd64.deb
+RUN			dpkg -i libgcc-7-dev_7.4.0-6_amd64.deb
 RUN			dpkg -i gcc-7_7.4.0-6_amd64.deb
 
 ## install rcon
