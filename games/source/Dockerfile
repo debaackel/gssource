@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH debian:bookworm-slim
+FROM        --platform=$TARGETOS/$TARGETARCH debian:buster-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
@@ -32,20 +32,8 @@ ENV         DEBIAN_FRONTEND=noninteractive
 RUN         dpkg --add-architecture i386 \
             && apt update \
             && apt upgrade -y \
-            && apt install -y tar curl gcc g++ lib32gcc-s1 libgcc-11-dev libgcc-12-dev libcurl4-gnutls-dev:i386 libssl-dev:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 iproute2 gdb libsdl1.2debian libfontconfig1 telnet net-tools netcat-traditional tzdata numactl wget tini \
+            && apt install -y tar curl gcc g++ lib32gcc-s1 libgcc-11-dev libgcc-12-dev libcurl4-gnutls-dev:i386 libssl-dev:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 iproute2 gdb libsdl1.2debian libfontconfig1 telnet net-tools netcat-traditional tzdata numactl wget tini gcc-7 \
             && useradd -m -d /home/container container
-
-RUN 		wget http://ftp.de.debian.org/debian/pool/main/g/gcc-7/gcc-7_7.4.0-6_amd64.deb \
-			&& wget http://ftp.de.debian.org/debian/pool/main/i/isl/libisl19_0.20-2_amd64.deb \
-   			&& wget http://ftp.de.debian.org/debian/pool/main/g/gcc-7/libgcc-7-dev_7.4.0-6_amd64.deb \
-   			&& wget http://ftp.de.debian.org/debian/pool/main/g/gcc-7/gcc-7-base_7.4.0-6_amd64.deb \
-   			&& wget http://ftp.de.debian.org/debian/pool/main/g/gcc-7/cpp-7_7.4.0-6_amd64.deb
-
-RUN			dpkg -i libisl19_0.20-2_amd64.deb
-RUN			dpkg -i gcc-7-base_7.4.0-6_amd64.deb
-RUN			dpkg -i cpp-7_7.4.0-6_amd64.deb
-RUN			dpkg -i libgcc-7-dev_7.4.0-6_amd64.deb
-RUN			dpkg -i gcc-7_7.4.0-6_amd64.deb
 
 ## install rcon
 RUN         cd /tmp/ \
