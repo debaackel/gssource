@@ -38,11 +38,6 @@ RUN         dpkg --add-architecture i386 \
 RUN 		echo 'deb http://deb.debian.org/debian buster main' > /etc/apt/sources.list
 RUN 		echo 'deb-src http://deb.debian.org/debian buster main' > /etc/apt/sources.list
 
-RUN 		echo 'deb http://deb.debian.org/debian-security/ buster/updates main' > /etc/apt/sources.list
-RUN 		echo 'deb-src http://deb.debian.org/debian-security/ buster/updates main' > /etc/apt/sources.list
-
-RUN 		echo 'deb http://deb.debian.org/debian buster-updates main' > /etc/apt/sources.list
-RUN 		echo 'deb-src http://deb.debian.org/debian buster-updates main' > /etc/apt/sources.list
 
 RUN			apt update -y
    
